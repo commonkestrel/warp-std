@@ -1,0 +1,10 @@
+pub const DRAW_BUFFER (0xF800 as *mut u8)
+pub const SCREEN_WIDTH = 80;
+pub const SCREEN_HEIGHT = 25;
+
+pub fn draw_screen(x: u8, y: u8, char: u8): void {
+    let i = (DRAW_BUFFER as u16) + y * SCREEN_WIDTH + x;
+    DRAW_BUFFER[i] = char;
+
+    return;
+}
