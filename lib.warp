@@ -1,1 +1,2 @@
 pub namespace arch;
+pub namespace alloc;

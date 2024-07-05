@@ -1,0 +1,17 @@
+/// std = https://github.com/commonkestrel/warp-std
+use std::alloc::vec;
+
+fn main(): void {
+    let a = vec::new() as *mut u8;
+
+    vec::push(a);
+    vec[0] = 8;
+
+    vec::push(a);
+    vec[1] = 16;
+
+    vec::push(a);
+    vec[2] = 3;
+
+    vec::drop(a);
+}

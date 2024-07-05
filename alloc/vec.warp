@@ -1,0 +1,48 @@
+import super::{malloc, free};
+
+const HEADER_SIZE = 3 * sizeof!(u16)
+
+pub fn new(item_size: u16): *mut void {
+    let ptr = malloc(HEADER_SIZE + 1);
+    set_header(ptr, 1, 0, item_size);
+
+    return ptr + HEADER_SIZE;
+}
+
+pub fn drop(ptr: *mut void): void {
+    let origin = ptr - HEADER_SIZE;
+    let size = HEADER_SIZE + (ptr as *u16)[0];
+
+    free(ptr, size);
+
+    return;
+}
+
+pub fn push(ptr: *mut void): void {
+    let origin = ptr - HEADER_SIZE;
+    
+    mut header = get_header(origin);
+
+    header[1] += 1;
+
+    if (*length >= *capacity) {
+        free(ptr, HEADER_SIZE + header[0] * header[2]);
+        header[0] *= 2;
+        malloc(HEADER_SIZE + header[0] * header[2]);
+    }
+}
+
+fn set_header(pointer: *mut void, capacity: u16, len: u16, element_size: u16): void {
+    let ptr = pointer as *mut u16;
+
+    ptr[0] = capacity;
+    ptr[1] = len;
+    ptr[2] = element_size;
+
+    return;
+}
+
+fn get_header(pointer: *void): (u16, u16, u16) {
+    let ptr = pointer as *mut u16;
+    return (ptr[0], ptr[1], ptr[2]);
+}

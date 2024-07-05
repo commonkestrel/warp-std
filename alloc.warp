@@ -1,0 +1,13 @@
+pub namespace vec;
+
+pub const NULL_PTR (0x0000 as *mut void)
+
+pub fn malloc(size: u16): *mut void {
+    // TODO: add malloc functionality
+    return NULL_PTR;
+}
+
+pub fn free(ptr: *mut void, size: u16): void {
+    // TODO: add free functionality
+    return;
+}
