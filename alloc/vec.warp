@@ -1,7 +1,7 @@
 import super::malloc;
 import super::free;
 
-const HEADER_SIZE = 3 * sizeof!(u16)
+const HEADER_SIZE = 3 * sizeof!(u16);
 
 pub fn new(item_size: u16): *mut void {
     let ptr = malloc(HEADER_SIZE + 1);
