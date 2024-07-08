@@ -1,4 +1,4 @@
-pub const DRAW_BUFFER (0xF800 as *mut u8)
+pub const DRAW_BUFFER = (0xF800 as *mut u8);
 pub const SCREEN_WIDTH = 80;
 pub const SCREEN_HEIGHT = 25;
 
