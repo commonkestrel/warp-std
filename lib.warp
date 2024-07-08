@@ -1,2 +1,2 @@
-pub namespace arch;
-pub namespace alloc;
+pub subspace arch;
+pub subspace alloc;
