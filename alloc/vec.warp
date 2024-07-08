@@ -1,4 +1,5 @@
-import super::{malloc, free};
+import super::malloc;
+import super::free;
 
 const HEADER_SIZE = 3 * sizeof!(u16)
 

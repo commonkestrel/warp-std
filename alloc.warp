@@ -1,4 +1,4 @@
-pub namespace vec;
+pub subspace vec;
 
 pub const NULL_PTR (0x0000 as *mut void)
 

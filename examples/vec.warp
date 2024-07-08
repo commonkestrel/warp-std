@@ -1,5 +1,5 @@
 /// std = https://github.com/commonkestrel/warp-std
-use std::alloc::vec;
+import std::alloc::vec;
 
 fn main(): void {
     let a = vec::new() as *mut u8;
